@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스마트 GIF 생성기 | CineMotion Film Lab</title>
+  <!-- Google Fonts: 감성 폰트 (나눔명조, 나눔손글씨 펜 등) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="kmou.png">
+</head>
+<body>
+  <!-- Film Grain Ambient Pattern -->
+  <div class="film-grain"></div>
+
+  <!-- ==========================================
+       1. 상단 레이아웃
+       ========================================== -->
+  <header class="top-header">
+    <div class="container header-inner">
+      <!-- 상단 좌측: 국립한국해양대학교 실제 CI 로고 이미지 & 링크 -->
+      <div class="header-left">
+        <a href="https://kmou.ac.kr" target="_blank" rel="noopener noreferrer" class="kmou-link" title="국립한국해양대학교 공식 홈페이지 바로가기">
+          <img src="kmou.png" alt="국립한국해양대학교 공식 로고" class="kmou-img" id="kmouLogoImg">
+          <span class="kmou-tagline">국립한국해양대</span>
+        </a>
+      </div>
+
+      <!-- 상단 우측: '스마트 GIF 생성기' 명칭 (시네마틱 감성) -->
+      <div class="header-right">
+        <div class="site-brand">
+          <div class="brand-text-block">
+            <span class="brand-title">스마트 GIF 생성기</span>
+            <span class="brand-subtitle">CineMotion Film Studio</span>
+          </div>
+          <div class="brand-shutter-box">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2m5.5 8.5H10v-3H8v5h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H9.5v2m4.5-4v7h1.5v-7H14m3 0v7h1.5v-3H20v-1.5h-1.5V11H20V9.5h-3Z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ==========================================
+         2. 감성 히어로 섹션
+         ========================================== -->
+    <section class="hero-romantic">
+      <div class="hero-tape-badge">
+        <span class="film-icon">🎞️</span>
+        <span class="hero-tape-text">동영상을 낭만적인 순간으로</span>
+      </div>
+
+      <h1 class="hero-headline">
+        Video를 감성 GIF로 변환
+      </h1>
+      <p class="hero-subhead">
+        바다의 일렁이는 파도부터 일상의 찰나까지, 원하는 순간을 잘라내어 한 편의 감성적인 움직이는 필름(GIF)으로 간직하세요.
+      </p>
+    </section>
+
+    <!-- ==========================================
+         3. 실제 실사 샘플 영상 갤러리 (자연, 동물, 풍경)
+         ========================================== -->
+    <section class="sample-gallery-card">
+      <div class="sample-head-row">
+        <div class="sample-head-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#d97706">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+          </svg>
+          <span>영상이 없으신가요? 1초 만에 실제 자연/동물 실사 영상으로 체험해 보세요</span>
+        </div>
+        <span class="sample-pill-badge">실제 실사 영상</span>
+      </div>
+
+      <div class="sample-cards-grid">
+        <!-- 실사 샘플 1: 바다 파도 -->
+        <button type="button" class="sample-item-btn" data-sample-file="samples/ocean_waves_real.mp4">
+          <span class="sample-tag">자연 & 바다 실사</span>
+          <strong class="sample-name">🌊 에메랄드 바다 파도</strong>
+          <p class="sample-desc">눈부시게 부서지는 실제 푸른 바다 물결과 파도의 낭만 (실사 비디오)</p>
+          <span class="sample-btn-action">이 영상으로 바로 만들기 →</span>
+        </button>
+
+        <!-- 실사 샘플 2: 동물 사자 -->
+        <button type="button" class="sample-item-btn" data-sample-file="samples/lion_wildlife.mp4">
+          <span class="sample-tag">야생 동물 실사</span>
+          <strong class="sample-name">🦁 야생의 사자</strong>
+          <p class="sample-desc">드넓은 초원 위에서 살아 숨쉬는 위풍당당한 사자의 움직임 (동물 실사)</p>
+          <span class="sample-btn-action">이 영상으로 바로 만들기 →</span>
+        </button>
+
+        <!-- 실사 샘플 3: 숲속 동물 -->
+        <button type="button" class="sample-item-btn" data-sample-file="samples/nature_forest_animal.mp4">
+          <span class="sample-tag">자연 풍경 & 동물</span>
+          <strong class="sample-name">🌿 자연 숲속 토끼와 나비</strong>
+          <p class="sample-desc">초록빛 풀밭과 꽃잎 사이로 뛰노는 귀여운 토끼와 나비의 모션</p>
+          <span class="sample-btn-action">이 영상으로 바로 만들기 →</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. 파일 업로드 영역 (1회 1개 제한)
+         ========================================== -->
+    <section class="upload-area-wrapper" id="dropzoneWrapper">
+      <div class="dropzone-cinematic" id="dropzone">
+        <input type="file" id="videoFileInput" accept=".mp4,.mov,.webm,.avi,.mkv,.flv,.wmv,.m4v,video/*" style="display: none;">
+        <div class="dropzone-center">
+          <div class="film-reel-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+            </svg>
+          </div>
+          <h3 class="drop-title">소장하고 계신 동영상 파일을 이곳에 올려주세요</h3>
+          <p class="drop-sub">MP4, WebM, MOV, AVI 등 다양한 동영상 포맷 지원 (1회 1개 제한)</p>
+          <button type="button" class="btn-upload-film" id="browseBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
+            </svg>
+            내 컴퓨터에서 파일 선택하기
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         5. 시네마틱 에디터 스튜디오 워크스페이스
+         ========================================== -->
+    <section class="studio-workspace hidden" id="editorWorkspace">
+      <!-- 감성 탭 툴바 -->
+      <nav class="studio-tab-bar" id="studioTabBar">
+        <button type="button" class="studio-tab active" data-tab="pane-trim">✂️ 구간 자르기</button>
+        <button type="button" class="studio-tab" data-tab="pane-crop">📐 화면 크롭</button>
+        <button type="button" class="studio-tab" data-tab="pane-resize">📏 해상도 조절</button>
+        <button type="button" class="studio-tab" data-tab="pane-speed">⚡ 재생 속도 & FPS</button>
+        <button type="button" class="studio-tab" data-tab="pane-compress">🗜️ 용량 다이어트</button>
+        <button type="button" class="studio-tab" data-tab="pane-caption">✍️ 텍스트 자막 & 글꼴</button>
+        <button type="button" class="studio-tab" data-tab="pane-sticker">✨ 스티커 (자유 드래그)</button>
+        <button type="button" class="studio-tab" data-tab="pane-filter">🎨 감성 필름 필터</button>
+      </nav>
+
+      <!-- 2열 에디터 그리드 -->
+      <div class="studio-grid">
+        <!-- 좌측: 비디오 뷰파인더 & 타임라인 -->
+        <div class="monitor-card">
+          <div class="monitor-header">
+            <div class="monitor-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#d97706">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+              </svg>
+              <span>시네마틱 뷰파인더</span>
+              <span class="drag-hint-pill">💡 자막과 스티커를 마우스로 직접 잡고 드래그해 보세요!</span>
+            </div>
+            <span class="timecode-live" id="videoTimeDisplay">00:00 / 00:00</span>
+          </div>
+
+          <!-- 뷰파인더 스테이지 (마우스 드래그로 스티커/자막 자유 이동 가능!) -->
+          <div class="viewfinder-stage" id="stageWrapper">
+            <video id="previewVideo" playsinline preload="auto" muted></video>
+
+            <div class="crop-frame-box" id="cropOverlayBox">
+              <span class="crop-tag-chip" id="cropTagLabel">Crop Area</span>
+            </div>
+
+            <!-- 인터랙티브 드래그 오버레이 레이어 -->
+            <div class="cinema-overlay-layer" id="overlayLayer">
+              <div class="live-sticker-film hidden draggable-element" id="liveSticker" title="마우스로 드래그하여 이동하세요">🔥</div>
+              <div class="live-caption-film hidden draggable-element" id="liveCaption" title="마우스로 드래그하여 이동하세요">자막 미리보기</div>
+            </div>
+          </div>
+
+          <!-- 조작 바 -->
+          <div class="transport-bar">
+            <button type="button" class="btn-transport-play" id="btnPlayPause" title="재생/일시정지">
+              <svg id="playPauseIcon" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+            <input type="range" class="film-seeker" id="videoTimeline" min="0" max="100" value="0" step="0.01">
+          </div>
+
+          <!-- 상세 필름 정보 -->
+          <div class="film-spec-table">
+            <div class="spec-line">
+              <div class="spec-k">파일명</div>
+              <div class="spec-v" id="metaFileName">-</div>
+            </div>
+            <div class="spec-line">
+              <div class="spec-k">파일 크기</div>
+              <div class="spec-v" id="metaFileSize">-</div>
+            </div>
+            <div class="spec-line">
+              <div class="spec-k">원본 해상도</div>
+              <div class="spec-v" id="metaResolution">-</div>
+            </div>
+            <div class="spec-line">
+              <div class="spec-k">재생 시간</div>
+              <div class="spec-v" id="metaDuration">-</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 우측: 도구 옵션 패널 -->
+        <div class="panel-editor-card">
+          <!-- 1. Trim -->
+          <div class="tab-pane active" id="pane-trim">
+            <div class="pane-title-row">
+              <span class="pane-title">✂️ 변환 구간 자르기</span>
+              <span class="pane-pill">구간 트리밍</span>
+            </div>
+            <div class="opt-group">
+              <div class="opt-label-line">
+                <span>시작 시각 (초)</span>
+                <button type="button" class="chip-btn" id="btnSetStartCurrent" style="padding: 2px 8px;">현재 시점</button>
+              </div>
+              <input type="number" class="film-input" id="trimStartTime" min="0" step="0.1" value="0.0">
+            </div>
+            <div class="opt-group">
+              <div class="opt-label-line">
+                <span>종료 시각 (초)</span>
+                <button type="button" class="chip-btn" id="btnSetEndCurrent" style="padding: 2px 8px;">현재 시점</button>
+              </div>
+              <input type="number" class="film-input" id="trimEndTime" min="0.1" step="0.1" value="3.0">
+            </div>
+            <div style="background: var(--cream-100); padding: 12px; border-radius: var(--radius-xs); display: flex; justify-content: space-between; font-size: 0.86rem;">
+              <span>선택된 구간 길이:</span>
+              <strong id="trimSelectedDuration" style="color: var(--amber-gold);">3.0 초</strong>
+            </div>
+          </div>
+
+          <!-- 2. Crop -->
+          <div class="tab-pane" id="pane-crop">
+            <div class="pane-title-row">
+              <span class="pane-title">📐 화면 크롭 / 화각 조절</span>
+              <span class="pane-pill">프레이밍</span>
+            </div>
+            <div class="opt-group">
+              <label class="opt-label-line"><span>비율 프리셋</span></label>
+              <div class="film-chips">
+                <button type="button" class="chip-btn active crop-btn" data-ratio="none">전체 (크롭 안함)</button>
+                <button type="button" class="chip-btn crop-btn" data-ratio="1:1">1:1 정사각형</button>
+                <button type="button" class="chip-btn crop-btn" data-ratio="16:9">16:9 와이드</button>
+                <button type="button" class="chip-btn crop-btn" data-ratio="9:16">9:16 릴스/쇼츠</button>
+                <button type="button" class="chip-btn crop-btn" data-ratio="4:3">4:3 클래식</button>
+              </div>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted);">
+              선택한 비율에 맞추어 비디오 중앙부를 깔끔하게 크롭하여 GIF를 생성합니다.
+            </p>
+          </div>
+
+          <!-- 3. Resize -->
+          <div class="tab-pane" id="pane-resize">
+            <div class="pane-title-row">
+              <span class="pane-title">📏 해상도 사이즈 조절</span>
+              <span class="pane-pill">크기 조절</span>
+            </div>
+            <div class="opt-group">
+              <label class="opt-label-line"><span>스케일 프리셋</span></label>
+              <div class="film-chips">
+                <button type="button" class="chip-btn active scale-btn" data-scale="1.0">원본 100%</button>
+                <button type="button" class="chip-btn scale-btn" data-scale="0.75">75%</button>
+                <button type="button" class="chip-btn scale-btn" data-scale="0.5">50% (추천)</button>
+                <button type="button" class="chip-btn scale-btn" data-scale="0.33">33%</button>
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <input type="number" class="film-input" id="targetWidth" value="480">
+              <span style="font-weight: 700;">×</span>
+              <input type="number" class="film-input" id="targetHeight" value="270">
+            </div>
+            <label style="display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--text-muted); cursor: pointer;">
+              <input type="checkbox" id="lockAspectRatio" checked style="accent-color: var(--ink-900);">
+              <span>가로세로 비율 유지</span>
+            </label>
+          </div>
+
+          <!-- 4. Speed & FPS -->
+          <div class="tab-pane" id="pane-speed">
+            <div class="pane-title-row">
+              <span class="pane-title">⚡ 재생 속도 & 프레임 (FPS)</span>
+              <span class="pane-pill">최대 30 FPS 제한</span>
+            </div>
+            <div class="opt-group">
+              <div class="opt-label-line">
+                <span>재생 속도</span>
+                <span class="opt-val" id="speedDisplay">1.0x (보통)</span>
+              </div>
+              <div class="film-chips">
+                <button type="button" class="chip-btn speed-btn" data-speed="0.5">0.5x 슬로우</button>
+                <button type="button" class="chip-btn active speed-btn" data-speed="1.0">1.0x 표준</button>
+                <button type="button" class="chip-btn speed-btn" data-speed="1.5">1.5x 빠른</button>
+                <button type="button" class="chip-btn speed-btn" data-speed="2.0">2.0x 배속</button>
+              </div>
+            </div>
+            <div class="opt-group">
+              <div class="opt-label-line">
+                <span>초당 프레임 수 (FPS)</span>
+                <span class="opt-val" id="fpsDisplay">15 FPS</span>
+              </div>
+              <input type="range" class="film-seeker" id="fpsRange" min="1" max="30" value="15" step="1">
+              <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-subtle);">
+                <span>1 FPS</span>
+                <span>15 FPS (추천)</span>
+                <span>30 FPS (최대한도)</span>
+              </div>
+            </div>
+            <div style="background: var(--cream-100); padding: 10px; border-radius: var(--radius-xs); display: flex; justify-content: space-between; font-size: 0.84rem;">
+              <span>예상 생성 프레임:</span>
+              <strong id="estimatedFramesText" style="color: var(--amber-gold);">약 45 프레임</strong>
+            </div>
+          </div>
+
+          <!-- 5. Compression -->
+          <div class="tab-pane" id="pane-compress">
+            <div class="pane-title-row">
+              <span class="pane-title">🗜️ GIF 파일 용량 압축</span>
+              <span class="pane-pill">용량 다이어트</span>
+            </div>
+            <div class="opt-group">
+              <label class="opt-label-line"><span>용량 절감 옵션</span></label>
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--ink-900); cursor: pointer; background: var(--cream-50); padding: 10px; border-radius: 6px; border: 1px solid var(--border-film);">
+                <input type="checkbox" id="dropFramesCheck" style="accent-color: var(--amber-gold);">
+                <span>프레임 스킵 (용량 50% 즉시 절감)</span>
+              </label>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
+              💡 2프레임마다 1장씩만 샘플링하여 부드러움을 유지하면서 파일 용량을 절반으로 대폭 줄입니다.
+            </p>
+          </div>
+
+          <!-- 6. Caption with Multiple Font Families -->
+          <div class="tab-pane" id="pane-caption">
+            <div class="pane-title-row">
+              <span class="pane-title">✍️ 텍스트 자막 & 글꼴</span>
+              <span class="pane-pill">감성 글꼴</span>
+            </div>
+            <div class="opt-group">
+              <label class="opt-label-line"><span>자막 문구 입력</span></label>
+              <input type="text" class="film-input" id="captionInput" placeholder="화면을 마우스로 잡고 원하는 위치로 드래그하세요">
+            </div>
+            <!-- 글자 꼴(폰트) 선택 기능 -->
+            <div class="opt-group">
+              <label class="opt-label-line"><span>글자 꼴 (Font Style)</span></label>
+              <div class="film-chips">
+                <button type="button" class="chip-btn active font-pick-btn" data-font="Pretendard, sans-serif" style="font-family: Pretendard, sans-serif;">모던 산세리프</button>
+                <button type="button" class="chip-btn font-pick-btn" data-font="'Nanum Myeongjo', serif" style="font-family: 'Nanum Myeongjo', serif; font-weight: 700;">감성 나눔명조</button>
+                <button type="button" class="chip-btn font-pick-btn" data-font="'Nanum Pen Script', cursive" style="font-family: 'Nanum Pen Script', cursive; font-size: 1rem;">낭만 손글씨</button>
+                <button type="button" class="chip-btn font-pick-btn" data-font="Impact, sans-serif" style="font-family: Impact, sans-serif; letter-spacing: 0.5px;">임팩트 밈</button>
+                <button type="button" class="chip-btn font-pick-btn" data-font="'Courier New', monospace" style="font-family: 'Courier New', monospace;">레트로 타자기</button>
+              </div>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <div class="opt-group" style="flex: 1;">
+                <label class="opt-label-line"><span>글자 크기</span></label>
+                <input type="range" class="film-seeker" id="captionFontSize" min="14" max="48" value="24">
+              </div>
+              <input type="color" id="captionColor" value="#ffffff" style="width: 40px; height: 36px; border: none; cursor: pointer; border-radius: 4px;" title="글자 색상 선택">
+            </div>
+            <p style="font-size: 0.8rem; color: var(--amber-gold); font-weight: 600;">
+              ✨ 자막을 마우스로 직접 잡고 드래그하여 원하는 위치에 놓을 수 있습니다.
+            </p>
+          </div>
+
+          <!-- 7. Sticker with Free Mouse Dragging -->
+          <div class="tab-pane" id="pane-sticker">
+            <div class="pane-title-row">
+              <span class="pane-title">✨ 감성 스티커 & 자유 드래그</span>
+              <button type="button" class="chip-btn" id="btnClearSticker" style="padding: 2px 8px;">제거</button>
+            </div>
+            <div class="sticker-board" id="stickerGrid">
+              <button type="button" class="sticker-pick-btn" data-sticker="🌊">🌊</button>
+              <button type="button" class="sticker-pick-btn" data-sticker="⚓">⚓</button>
+              <button type="button" class="sticker-pick-btn" data-sticker="🚢">🚢</button>
+              <button type="button" class="sticker-pick-btn" data-sticker="✨">✨</button>
+              <button type="button" class="sticker-pick-btn" data-sticker="🔥">🔥</button>
+              <button type="button" class="sticker-pick-btn" data-sticker="❤️">❤️</button>
+              <button type="button" class="sticker-pick-btn" data-sticker="🌟">🌟</button>
+              <button type="button" class="sticker-pick-btn" data-sticker="🎉">🎉</button>
+              <button type="button" class="sticker-pick-btn" data-sticker="🐱">🐱</button>
+              <button type="button" class="sticker-pick-btn" data-sticker="🐶">🐶</button>
+              <button type="button" class="sticker-pick-btn" data-sticker="🚀">🚀</button>
+              <button type="button" class="sticker-pick-btn" data-sticker="💯">💯</button>
+            </div>
+            <div style="background: var(--cream-100); padding: 10px; border-radius: var(--radius-xs); font-size: 0.82rem; color: var(--ink-900); line-height: 1.5;">
+              👆 <strong>마우스 자유 드래그 기능:</strong><br>
+              화면의 스티커를 마우스로 꾹 누른 채 원하는 곳으로 자유롭게 이동해 보세요!
+            </div>
+          </div>
+
+          <!-- 8. Filters -->
+          <div class="tab-pane" id="pane-filter">
+            <div class="pane-title-row">
+              <span class="pane-title">🎨 감성 필름 필터</span>
+              <span class="pane-pill">색감 보정</span>
+            </div>
+            <div class="opt-group">
+              <div class="film-chips">
+                <button type="button" class="chip-btn active filter-btn" data-filter="none">오리지널</button>
+                <button type="button" class="chip-btn filter-btn" data-filter="sepia(75%) contrast(110%)">빈티지 필름</button>
+                <button type="button" class="chip-btn filter-btn" data-filter="grayscale(100%)">흑백 시네마</button>
+                <button type="button" class="chip-btn filter-btn" data-filter="contrast(135%) saturate(140%)">생생한 노을</button>
+                <button type="button" class="chip-btn filter-btn" data-filter="brightness(105%) saturate(160%)">청량한 바다</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 렌더링 실행 & 프로그레스 & 다운로드 -->
+      <div class="render-action-card">
+        <button type="button" class="btn-render-gif" id="btnStartConvert">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/>
+          </svg>
+          <span id="btnConvertText">🎞️ 감성 스마트 GIF로 변환하기</span>
+        </button>
+
+        <div class="render-progress-suite">
+          <div class="progress-info-column">
+            <div class="progress-status-line">
+              <div class="status-film-text">
+                <span class="spin-wheel hidden" id="statusSpinner"></span>
+                <span id="statusMessage">대기 중... 준비되면 변환 버튼을 누르세요.</span>
+              </div>
+              <span style="font-weight: 800; font-family: monospace; color: var(--amber-gold);" id="progressPercent">0%</span>
+            </div>
+            <div class="render-progress-track">
+              <div class="render-progress-fill" id="progressBarFill"></div>
+            </div>
+          </div>
+
+          <!-- 변환 완료 시 우측에 활성화되는 다운로드 버튼 -->
+          <button type="button" class="btn-cinema-download" id="btnDownload" disabled>
+            <svg viewBox="0 0 24 24">
+              <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+            </svg>
+            <span id="downloadBtnLabel">GIF 다운로드</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 실시간 썸네일 스트립 -->
+      <div class="film-strip-card">
+        <div class="strip-head">
+          <span style="font-size: 0.95rem; font-weight: 800; color: var(--ink-900);">🎬 실시간 추출 프레임 필름 스트립</span>
+          <span style="font-size: 0.82rem; font-weight: 700; color: var(--amber-gold);" id="framesCountBadge">추출 프레임: 0개</span>
+        </div>
+        <div class="film-frames-strip" id="thumbnailsContainer">
+          <div style="width: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-subtle); font-size: 0.85rem;" id="thumbPlaceholder">
+            변환을 시작하면 추출되는 모든 프레임 썸네일이 실시간으로 여기에 연결됩니다.
+          </div>
+        </div>
+      </div>
+
+      <!-- 최종 결과물 카드 -->
+      <div class="cinema-result-card hidden" id="resultPreviewCard">
+        <div>
+          <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--ink-900);">🎉 감성 스마트 GIF 완성이 완료되었습니다!</h2>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">아래에서 무한 반복 재생되는 결과물을 감상하고 다운로드 버튼을 눌러 저장하세요.</p>
+        </div>
+        <div class="result-screen-wrapper">
+          <img id="resultGifImg" alt="생성된 스마트 GIF 결과물">
+        </div>
+        <div class="specs-chip-row">
+          <div class="film-badge-chip">파일명: <strong id="resultFilenameText">-</strong></div>
+          <div class="film-badge-chip">용량: <strong id="resultFilesizeText">-</strong></div>
+          <div class="film-badge-chip">해상도: <strong id="resultResolutionText">-</strong></div>
+          <div class="film-badge-chip">프레임: <strong id="resultFramesCountText">-</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         6. 내가 만들었던 기록 (히스토리 & 삭제 기능)
+         ========================================== -->
+    <section class="history-section" id="historySection">
+      <div class="history-header-card">
+        <div class="history-title-block">
+          <h2 class="history-title">
+            <span>📂 내가 만든 GIF 갤러리</span>
+            <span class="history-count-badge" id="historyCountBadge">기록 0개</span>
+          </h2>
+          <p class="history-subtitle">지금까지 생성했던 소중한 GIF 애니메이션 기록들을 확인하고 다시 다운로드하거나 관리할 수 있습니다.</p>
+        </div>
+        <button type="button" class="btn-clear-history" id="btnClearAllHistory">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+          </svg>
+          전체 기록 삭제
+        </button>
+      </div>
+
+      <!-- 기록 카드 리스트 그리드 -->
+      <div class="history-grid" id="historyGrid">
+        <div class="history-empty" id="historyEmpty">
+          아직 생성된 GIF 기록이 없습니다. 위에서 동영상을 변환해 나만의 GIF를 만들어보세요!
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 미지원 포맷 안내 모달 -->
+  <div class="modal-overlay" id="formatErrorModal">
+    <div class="modal-box-film">
+      <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--ink-900);">지원하지 않는 파일 형식입니다</h3>
+      <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.5;" id="modalErrorMsg">
+        선택하신 파일은 지원되지 않는 포맷입니다.<br>MP4, WebM, MOV 등의 파일을 업로드해 주세요.
+      </p>
+      <button type="button" class="modal-btn-film" id="btnModalClose">확인</button>
+    </div>
+  </div>
+
+  <canvas id="captureCanvas" style="display: none;"></canvas>
+
+  <!-- Scripts -->
+  <script src="gif-encoder.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
